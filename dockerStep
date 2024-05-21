@@ -1,0 +1,12 @@
+need to create Docker file in root folder
+From node:20-alpine (use any version of node)
+WORKDIR /app
+COPY package*.json . for copy
+RUN npm install to installed copy packges
+COPY . . (source destination)
+EXPOSE 5173 (Replace your reactjs port with them)
+CMD ['npm','run','dev'] (for run)
+
+run "docker build -t react-app:dev ." command (Docker run in your computer background)
+
+run "docker run -p 5173:5173 react-app:dev" (for running app)

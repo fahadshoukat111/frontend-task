@@ -1,23 +1,17 @@
-import React from 'react';
-import SearchBar from './components/SearchBar';
-import ArticleList from './components/ArticleList';
-import useArticles from './hooks/useArticles';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Home from './components/Home/Home';
+import UsersPrefrances from './components/Users-Prefrances/UsersPrefrances';
 
 const App = () => {
-  const { articles, status, error, preferences, handleSearch, handleFilter, handlePreferencesChange } = useArticles();
+
+
   return (
-    <div className="app">
-      <header className="header">
-        <h1>News Aggregator</h1>
-      </header>
-      <main className="main">
-        <SearchBar onSearch={handleSearch} onFilter={handleFilter} />
-        {status === 'loading' && <div>Loading...</div>}
-        {status === 'failed' && <div>{error}</div>}
-        <ArticleList articles={articles} />
-      </main>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/preferences" element={<UsersPrefrances />}>
+      </Route>
+    </Routes>
   );
 };
 

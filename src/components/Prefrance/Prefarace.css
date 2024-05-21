@@ -1,0 +1,11 @@
+.main-select {
+    display: flex;
+    margin: 25px 0;
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+}
+
+select{
+    width:400px
+}

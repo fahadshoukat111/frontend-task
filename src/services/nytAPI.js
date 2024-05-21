@@ -2,6 +2,14 @@ import axios from 'axios';
 
 const NYT_API_KEY = 'GThoxPuq4dSmhGCkW2IpUgSFqGiySUDx';
 
+/**
+ * fetch api and normalize data to match other
+ * @param {*} query 
+ * @param {*} category 
+ * @param {*} startDate 
+ * @param {*} endDate 
+ * @returns 
+ */
 export const fetchNYTNews = async (query, category, startDate, endDate) => {
     const url = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&fq=${category}&api-key=${NYT_API_KEY}`;
     try {

@@ -1,20 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const SearchBar = ({ onSearch, onFilter }) => {
-    console.log(onSearch)
+const SearchBar = ({ onSearch, onFilter, getArticlesList }) => {
     const [query, setQuery] = useState('');
     const [category, setCategory] = useState('');
     const [source, setSource] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
 
+
+    /**
+     * search function use here which get from parent component
+        */
     const handleSearch = () => {
         onSearch(query, category, source, startDate, endDate);
     };
 
+    /**
+     * filter function use here which get from parent component
+     */
     const handleFilter = () => {
         onFilter(category, source, startDate, endDate);
     };
+
+    /**
+     * useEffect for when input make empty after filter 
+     */
+    useEffect(() => {
+        if (category === "" || source === "") {
+            getArticlesList();
+        }
+    }, [category,source]);
 
     return (
         <div className="search-bar">

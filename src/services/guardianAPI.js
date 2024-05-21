@@ -3,6 +3,14 @@ import axios from 'axios';
 const GUARDIAN_API_KEY = 'test'; // Replace 'YOUR_API_KEY' with your actual API key
 const BASE_URL = 'https://content.guardianapis.com';
 
+/**
+ * fetch api and normalize data to match other
+ * @param {*} query 
+ * @param {*} category 
+ * @param {*} startDate 
+ * @param {*} endDate 
+ * @returns 
+ */
 export const fetchGuardianNews = async (query = '', category = '', startDate = '', endDate = '') => {
     try {
         const queryParams = new URLSearchParams({
